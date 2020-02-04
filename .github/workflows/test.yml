@@ -16,9 +16,7 @@ jobs:
     steps:
     - name: Hi from Windows Windows
       if: startsWith(matrix.os, 'windows')
-      uses: llvm/actions/setup-windows@master
       run: echo Hello from Windows
     - name: Hi from everything but Windows
-      if: !startsWith(matrix.os, 'windows')
-      uses: llvm/actions/setup-windows@master
+      if: ! startsWith(matrix.os, 'windows')
       run: echo Hello from not Windows
