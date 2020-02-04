@@ -14,9 +14,9 @@ jobs:
           - windows-latest
           - macOS-latest
     steps:
-    - name: Hi from Windows Windows
+    - name: Hi from ${{ matrix.os }}
       if: startsWith(matrix.os, 'windows')
       run: echo Hello from Windows
-    - name: Hi from everything but Windows
+    - name: Hi from ${{ matrix.os }}
       if: startsWith(matrix.os, 'windows') == false
       run: echo Hello from not Windows
