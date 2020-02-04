@@ -1,0 +1,24 @@
+name: Commit Tests
+
+on:
+  push:
+
+jobs:
+  build_experiment:
+    name: Hit if
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
+    steps:
+    - name: Hi from Windows Windows
+      if: startsWith(matrix.os, 'windows')
+      uses: llvm/actions/setup-windows@master
+      run: echo Hello from Windows
+    - name: Hi from everything but Windows
+      if: !startsWith(matrix.os, 'windows')
+      uses: llvm/actions/setup-windows@master
+      run: echo Hello from not Windows
